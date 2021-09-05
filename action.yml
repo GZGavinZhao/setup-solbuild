@@ -1,6 +1,5 @@
 name: 'setup-solbuild'
-author: "GZGavinZhao"
-description: 'Setup solbuild, the package build system for Solus OS.'
+description: 'Greet someone'
 inputs:
   packager:
     description: 'Name of the packager.'
@@ -10,10 +9,6 @@ inputs:
     description: 'Email of the packager.'
     required: false
     default: 'user@example.com'
-  update:
-    description: 'Whether to update the base image to the latest unstable repo.'
-    required: false
-    default: 'true'
 runs:
   using: "composite"
   steps:
@@ -21,8 +16,4 @@ runs:
     - run: chmod +x ${{ github.action_path }}/setup.sh
       shell: bash
     - run: ${{ github.action_path }}/setup.sh "${{ inputs.packager }}" "${{ inputs.email }}"
-      shell: bash
-    - name: 'Update base image.'
-      if: output.update == 'true'
-      run: sudo solbuild update
       shell: bash
