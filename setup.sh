@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt install libgit2-dev libcurl-dev -y
+sudo apt install libgit2-dev libcurl4-openssl-dev -y
 
 cd /tmp
 git clone https://github.com/getsolus/solbuild.git --depth 1
