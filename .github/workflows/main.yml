@@ -2,7 +2,7 @@ name: 'Workflow CI'
 on: [push]
 
 jobs:
-  hello_world_job:
+  ci_job:
     runs-on: ubuntu-latest
     name: Test solbuild builds
     steps:

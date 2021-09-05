@@ -15,5 +15,5 @@ runs:
     - uses: actions/setup-go@v2
     - run: chmod +x ${{ github.action_path }}/setup.sh
       shell: bash
-    - run: ${{ github.action_path }}/setup.sh ${{ inputs.packager }} ${{ inputs.email }}
+    - run: ${{ github.action_path }}/setup.sh "${{ inputs.packager }}" "${{ inputs.email }}"
       shell: bash
