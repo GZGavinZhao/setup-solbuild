@@ -1,3 +1,4 @@
+name: 'Workflow CI'
 on: [push]
 
 jobs:
@@ -12,6 +13,9 @@ jobs:
           email: 'gavin@example.com'
       - name: "Print solbuild version"
         run: solbuild version
+        shell: bash
+      - name: "Print packager details"
+        run: cat $HOME/.solus/packager
         shell: bash
       - name: "Build nano"
         run: git clone https://dev.getsol.us/source/nano.git --depth 1 && cd nano && sudo solbuild build

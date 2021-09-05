@@ -22,7 +22,6 @@ cd $HOME && mkdir -p .solus
 echo "[Packager]
 Name=$1
 Email=$2" > $HOME/.solus/packager
-cat $HOME/.solus/packager
 echo "::endgroup::"
 
 echo "::group::init solbuild"
