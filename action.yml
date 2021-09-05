@@ -1,0 +1,8 @@
+name: 'setup-solbuild'
+description: 'Greet someone'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-go@v2
+    - run: ${{ github.action_path }}/goodbye.sh
+      shell: bash
