@@ -1,5 +1,5 @@
 name: 'setup-solbuild'
-description: 'Greet someone'
+description: 'Setup solbuild, the Solus package build system.'
 inputs:
   packager:
     description: 'Name of the packager.'
@@ -13,7 +13,5 @@ runs:
   using: "composite"
   steps:
     - uses: actions/setup-go@v2
-    - run: chmod +x ${{ github.action_path }}/setup.sh
-      shell: bash
     - run: ${{ github.action_path }}/setup.sh "${{ inputs.packager }}" "${{ inputs.email }}"
       shell: bash
