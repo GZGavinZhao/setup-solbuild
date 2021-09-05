@@ -7,5 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
-      - run: solbuild version
+      - name: "Print solbuild version"
+        run: solbuild version
+        shell: bash
+      - name: "Build nano"
+        run: git clone https://dev.getsol.us/source/nano.git --depth 1 && cd nano && sudo solbuild build
         shell: bash

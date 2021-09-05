@@ -11,7 +11,6 @@ cd solbuild
 echo "::endgroup::"
 
 echo "::group::build solbuild"
-make ensure_modules
 make
 echo "::endgroup::"
 echo "::group::install solbuild"
