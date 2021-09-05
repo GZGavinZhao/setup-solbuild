@@ -11,6 +11,7 @@ jobs:
         with:
           packager: 'Gavin Zhao'
           email: 'gavin@example.com'
+          update: true
       - name: "Print solbuild version"
         run: solbuild version
         shell: bash
