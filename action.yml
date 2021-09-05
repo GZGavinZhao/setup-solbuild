@@ -4,5 +4,7 @@ runs:
   using: "composite"
   steps:
     - uses: actions/setup-go@v2
+    - run: chmod +x ${{ github.action_path }}/setup.sh
+      shell: bash
     - run: ${{ github.action_path }}/setup.sh
       shell: bash
