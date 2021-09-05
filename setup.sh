@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo apt install libgit2-dev curl -y
+sudo apt install libgit2-dev libcurl-dev -y
 
-cd tmp
+cd /tmp
 git clone https://github.com/getsolus/solbuild.git --depth 1
 cd solbuild
 make ensure_modules
