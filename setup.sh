@@ -17,8 +17,16 @@ echo "::group::install solbuild"
 sudo make install
 echo "::endgroup::"
 
+echo "::group::write packager configuration file"
+cd $HOME && mkdir -p .solus
+echo "[Packager]
+Name=$1
+Email=$2" > $HOME/.solus/packager
+cat $HOME/.solus/packager
+echo "::endgroup::"
+
 echo "::group::init solbuild"
-cd $HOME
+rm -rf /tmp/solbuild
 sudo solbuild init -u
 sudo solbuild update
 echo "::endgroup::"

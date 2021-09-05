@@ -7,6 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
+        with:
+          packager: 'Gavin Zhao'
+          email: 'gavin@example.com'
       - name: "Print solbuild version"
         run: solbuild version
         shell: bash
