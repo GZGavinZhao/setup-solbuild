@@ -1,5 +1,8 @@
 name: 'setup-solbuild'
 description: 'Setup solbuild, the Solus package build system.'
+branding:
+  icon: 'package'  
+  color: 'blue'
 inputs:
   packager:
     description: 'Name of the packager.'
