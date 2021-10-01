@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "::group::install dependencies"
-sudo apt-get install libgit2-dev libcurl4-openssl-dev -y --quiet
+sudo apt-get -qq -y install libgit2-dev libcurl4-openssl-dev
 echo "::endgroup::"
 
 echo "::group::clone solbuild"
