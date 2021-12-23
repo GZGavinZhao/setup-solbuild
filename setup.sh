@@ -26,5 +26,5 @@ echo "::endgroup::"
 
 echo "::group::init solbuild"
 rm -rf /tmp/solbuild
-sudo solbuild init -u
+sudo solbuild init -u -p $3-x86_64
 echo "::endgroup::"

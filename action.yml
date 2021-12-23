@@ -3,6 +3,7 @@ description: 'Setup solbuild, the Solus package build system.'
 branding:
   icon: 'package'  
   color: 'blue'
+
 inputs:
   packager:
     description: 'Name of the packager.'
@@ -12,9 +13,29 @@ inputs:
     description: 'Email of the packager.'
     required: false
     default: 'user@example.com'
+  profile:
+    description: 'The profile to use.'
+    required: false
+    default: 'unstable'
+
 runs:
   using: "composite"
   steps:
     - uses: actions/setup-go@v2
-    - run: ${{ github.action_path }}/setup.sh "${{ inputs.packager }}" "${{ inputs.email }}"
+
+    - name: Change solbuild directory permission
+      run: sudo mkdir -p /var/lib/solbuild && sudo chmod -R 777 /var/lib/solbuild
+      shell: bash
+
+    - name: Cache solbuild images and packages
+      id: cache-solbuild
+      uses: actions/cache@v2
+      with:
+        path: |
+          /var/lib/solbuild/images
+          /var/lib/solbuild/packages
+        key: ${{ github.workflow }}-${{ github.ref_name }}
+
+    - name: Build and setup solbuild
+      run: ${{ github.action_path }}/setup.sh "${{ inputs.packager }}" "${{ inputs.email }}" "${{ inputs.profile }}"
       shell: bash
