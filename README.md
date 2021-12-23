@@ -44,6 +44,7 @@ If you want to initialize another profile, manually run
     with:
       packager: "Gavin Zhao"
       email: "gavin@example.com"
+      profile: unstable
 
 - name: 'Build package'
   run: sudo solbuild build # Run with sudo!
