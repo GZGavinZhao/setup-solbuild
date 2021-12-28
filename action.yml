@@ -27,6 +27,14 @@ runs:
       run: sudo mkdir -p /var/lib/solbuild && sudo chmod -R 777 /var/lib/solbuild
       shell: bash
 
+    - name: Build and setup solbuild
+      run: ${{ github.action_path }}/setup.sh "${{ inputs.packager }}" "${{ inputs.email }}" "${{ inputs.profile }}"
+      shell: bash
+
+    - name: Change solbuild directory permission again
+      run: sudo mkdir -p /var/lib/solbuild && sudo chmod -R 777 /var/lib/solbuild
+      shell: bash
+
     - name: Cache solbuild images and packages
       id: cache-solbuild
       uses: actions/cache@v2
@@ -36,6 +44,6 @@ runs:
           /var/lib/solbuild/packages
         key: ${{ github.workflow }}-${{ github.ref_name }}
 
-    - name: Build and setup solbuild
-      run: ${{ github.action_path }}/setup.sh "${{ inputs.packager }}" "${{ inputs.email }}" "${{ inputs.profile }}"
+    - name: Update solbuild profile(s)
+      run: sudo solbuild init -p ${{ inputs.profile }}-x86_64 sudo solbuild update -p ${{ inputs.profile }}
       shell: bash
