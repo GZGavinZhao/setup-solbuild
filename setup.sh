@@ -28,3 +28,4 @@ echo "::group::init solbuild"
 rm -rf /tmp/solbuild
 sudo solbuild init
 echo "::endgroup::"
+

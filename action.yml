@@ -47,3 +47,4 @@ runs:
     - name: Update solbuild profile(s)
       run: sudo solbuild init -p ${{ inputs.profile }}-x86_64 && sudo solbuild update -p ${{ inputs.profile }}-x86_64
       shell: bash
+
