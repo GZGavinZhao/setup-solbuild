@@ -45,5 +45,5 @@ runs:
         key: ${{ github.workflow }}-${{ github.ref_name }}
 
     - name: Update solbuild profile(s)
-      run: sudo solbuild init -p ${{ inputs.profile }}-x86_64 && sudo solbuild update -p ${{ inputs.profile }}
+      run: sudo solbuild init -p ${{ inputs.profile }}-x86_64 && sudo solbuild update -p ${{ inputs.profile }}-x86_64
       shell: bash
